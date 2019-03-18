@@ -3,9 +3,9 @@
 ----
 ## GaitSet
 
--[Paper](https://arxiv.org/abs/1811.06186)
+- Paper : [GaitSet: Regarding Gait as a Set for Cross-View Gait Recognition](https://arxiv.org/abs/1811.06186)
 
--[Github](https://github.com/AbnerHqC/GaitSet)
+- Github : [GaitSet](https://github.com/AbnerHqC/GaitSet)
 
 ----
 

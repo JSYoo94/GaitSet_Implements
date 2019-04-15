@@ -25,7 +25,8 @@ class SetNet(nn.Module):
                 
     def forward(self, seqs):
         
-        input = torch.FloatTensor(seqs).unsqueeze(2)
+        input = torch.FloatTensor(seqs).cuda()
+        input = input.unsqueeze(2)
         input = Variable(input).cuda()
         
         lc, gl = self.F(input)

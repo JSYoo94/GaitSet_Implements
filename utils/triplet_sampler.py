@@ -1,6 +1,8 @@
 import random
 import torch.utils.data as tordata
 
+from datetime import datetime
+
 class TripletSampler( tordata.sampler.Sampler ):
     
     def __init__(self, dataset, batch_size):
@@ -14,9 +16,10 @@ class TripletSampler( tordata.sampler.Sampler ):
             
             for _label in label_list:
                 
-                s_idx = random.choices([i for i, __label in enumerate(self.dataset.label) if _label == __label], k = self.batch_size[1])
-                sample_indices += s_idx
+                s_idx = random.choices(self.dataset.index_dict[_label], k=self.batch_size[1])
                 
+                sample_indices += s_idx
+             
             yield sample_indices
                                        
     def __len__(self):
@@ -33,10 +36,22 @@ def collate_fnn( batch ):
     def select_frame(index):
         sample = seqs[index]
         
-        if len(sample) < 16:
-            print(label[index], view[index])
+        frame_num = 16              
+        if len(sample) < frame_num:
+            print(view[index], label[index])
+            sampled_num = 0  
+            frame_list = []
+            while(sampled_num != frame_num):
+                if ( frame_num - sampled_num ) / len(sample) < 1:
+                    frame_list += random.choices([i for i in range(len(sample))], k = frame_num - sampled_num)
+                    sampled_num += frame_num - sampled_num
+                else:
+                    frame_list += random.choices([i for i in range(len(sample))], k = len(sample))
+                    sampled_num += len(sample)
+        
+        else:
+            frame_list = random.choices([ i for i in range(len(sample))], k = frame_num)
             
-        frame_list = random.choices([ i for i in range(len(sample))], k = 16)
         _ = [ sample[i] for i in frame_list ]
         
         return _

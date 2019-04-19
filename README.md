@@ -2,6 +2,7 @@
 
 ----
 ## GaitSet
+- Chao, H., He, Y., Zhang, J., & Feng, J. (2019). GaitSet: Regarding Gait as a Set for Cross-View Gait Recognition. CoRR, abs/1811.06186.
 
 - Paper : [GaitSet: Regarding Gait as a Set for Cross-View Gait Recognition](https://arxiv.org/abs/1811.06186)
 

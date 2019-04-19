@@ -28,5 +28,4 @@
 1. N. Takemura, Y. Makihara, D. Muramatsu, T. Echigo, and Y. Yagi, " Multi-view large population gait dataset and its performance
 evaluation for cross-view gait recognition ", IPSJ Trans. on Computer Vision and Applications, Vol. 10, No. 4, pp. 1-14, Feb.
 2018.
-
 ----
